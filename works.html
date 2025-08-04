@@ -53,7 +53,7 @@
     }
 
     .project {
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
 
     .project h2 {
@@ -65,6 +65,25 @@
       font-size: 1em;
       color: var(--text);
       margin: 0;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      margin-top: 10px;
+      border-radius: 12px;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      border: none;
     }
 
     footer {
@@ -82,6 +101,24 @@
     .socials a:hover {
       color: var(--text);
     }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 40px 20px;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      .project h2 {
+        font-size: 1.2em;
+      }
+
+      .project p {
+        font-size: 0.95em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -91,8 +128,11 @@
     <h1>Works</h1>
 
     <div class="project">
-      <h2><a href="https://yourproject1.com" target="_blank">Project Title 1</a></h2>
-      <p>Brief description of the project and what you built.</p>
+      <h2><a href="https://youtu.be/example1" target="_blank">Video Project 1</a></h2>
+      <p>Short description of the video project.</p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/example1" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div class="project">
