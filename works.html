@@ -6,24 +6,33 @@
   <title>Works – cAllum</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #ffffff;
+      --text: #000000;
+      --accent: #000000;
+      --button-bg: #f2f2f2;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111;
+        --text: #ffffff;
+        --accent: #ffffff;
+        --button-bg: #1a1a1a;
+      }
+    }
+
     body {
       margin: 0;
       padding: 60px 40px;
       font-family: 'Inter', sans-serif;
-      background-color: #fff;
-      color: #000;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #111;
-        color: #fff;
-      }
+      background-color: var(--bg);
+      color: var(--text);
     }
 
     a {
       text-decoration: none;
-      color: inherit;
+      color: var(--text);
       font-size: 0.9em;
       display: inline-block;
       margin-bottom: 30px;
@@ -54,14 +63,8 @@
 
     .project p {
       font-size: 1em;
-      color: #444;
+      color: var(--text);
       margin: 0;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .project p {
-        color: #ccc;
-      }
     }
 
     footer {
@@ -73,16 +76,11 @@
     .socials a {
       margin-right: 15px;
       color: #777;
+      text-decoration: none;
     }
 
     .socials a:hover {
-      color: #000;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .socials a:hover {
-        color: #fff;
-      }
+      color: var(--text);
     }
   </style>
 </head>
