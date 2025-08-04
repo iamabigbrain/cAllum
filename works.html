@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Works – cAllum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 60px 40px;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: #fff;
       color: #000;
-      font-family: 'Inter', sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #111;
+        color: #fff;
+      }
     }
 
     a {
       text-decoration: none;
-      color: #000;
+      color: inherit;
       font-size: 0.9em;
       display: inline-block;
       margin-bottom: 30px;
@@ -52,6 +58,12 @@
       margin: 0;
     }
 
+    @media (prefers-color-scheme: dark) {
+      .project p {
+        color: #ccc;
+      }
+    }
+
     footer {
       margin-top: 60px;
       font-size: 0.9em;
@@ -61,11 +73,16 @@
     .socials a {
       margin-right: 15px;
       color: #777;
-      text-decoration: none;
     }
 
     .socials a:hover {
       color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .socials a:hover {
+        color: #fff;
+      }
     }
   </style>
 </head>
@@ -76,16 +93,14 @@
     <h1>Works</h1>
 
     <div class="project">
-      <h2><a href="https://link-to-your-project.com" target="_blank">Project Title 1</a></h2>
-      <p>Short description of the project. What it is, what you used, and why it’s cool.</p>
+      <h2><a href="https://yourproject1.com" target="_blank">Project Title 1</a></h2>
+      <p>Brief description of the project and what you built.</p>
     </div>
 
     <div class="project">
-      <h2><a href="https://link-to-another.com" target="_blank">Project Title 2</a></h2>
-      <p>Another short blurb about another thing you made.</p>
+      <h2><a href="https://yourproject2.com" target="_blank">Project Title 2</a></h2>
+      <p>Another project summary with tools/tech used.</p>
     </div>
-
-    <!-- Add more projects here -->
 
     <footer>
       <div class="socials">
