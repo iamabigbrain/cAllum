@@ -3,20 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <title>cAllum</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #ffffff;
       --text: #000000;
       --accent: #000000;
       --button-bg: #f2f2f2;
-      font-family: 'Inter', sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111;
+        --text: #ffffff;
+        --accent: #ffffff;
+        --button-bg: #1a1a1a;
+      }
     }
 
     body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: var(--bg);
       color: var(--text);
       display: flex;
@@ -24,6 +32,7 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      padding: 40px 20px;
     }
 
     h1 {
@@ -58,7 +67,6 @@
       position: fixed;
       bottom: 20px;
       font-size: 0.9em;
-      color: #777;
     }
 
     .socials a {
@@ -68,7 +76,21 @@
     }
 
     .socials a:hover {
-      color: #000;
+      color: var(--text);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease-out forwards;
+      animation-delay: 0.2s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: none;
+      }
     }
 
     @media (max-width: 600px) {
@@ -83,15 +105,15 @@
   </style>
 </head>
 <body>
-  <h1>cAllum</h1>
+  <h1 class="fade-in">cAllum</h1>
 
-  <div class="buttons">
-  <a href="about.html">About</a>
-  <a href="works.html">Works</a>
-  <a href="contact.html">Contact</a>
-</div>
+  <div class="buttons fade-in">
+    <a href="about.html">About</a>
+    <a href="works.html">Works</a>
+    <a href="contact.html">Contact</a>
+  </div>
 
-  <footer>
+  <footer class="fade-in">
     <div class="socials">
       <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
       <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
