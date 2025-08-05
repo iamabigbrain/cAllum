@@ -28,6 +28,12 @@
       animation: fadeInUp 0.6s ease-out forwards;
     }
 
+    .fade-out {
+      opacity: 1;
+      transform: none;
+      animation: fadeOutDown 0.4s ease-in forwards;
+    }
+
     .fade-in.delay-1 { animation-delay: 0.2s; }
     .fade-in.delay-2 { animation-delay: 0.4s; }
     .fade-in.delay-3 { animation-delay: 0.6s; }
@@ -37,6 +43,13 @@
       to {
         opacity: 1;
         transform: none;
+      }
+    }
+
+    @keyframes fadeOutDown {
+      to {
+        opacity: 0;
+        transform: translateY(20px);
       }
     }
 
@@ -138,6 +151,19 @@
       }
     }
   </style>
+  <script>
+    // Optional: Trigger fade-out on link clicks
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function (e) {
+          const container = document.querySelector(".container");
+          if (container) {
+            container.classList.add("fade-out");
+          }
+        });
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="container fade-in delay-1">
