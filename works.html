@@ -28,12 +28,6 @@
       animation: fadeInUp 0.6s ease-out forwards;
     }
 
-    .fade-out {
-      opacity: 1;
-      transform: none;
-      animation: fadeOutDown 0.4s ease-in forwards;
-    }
-
     .fade-in.delay-1 { animation-delay: 0.2s; }
     .fade-in.delay-2 { animation-delay: 0.4s; }
     .fade-in.delay-3 { animation-delay: 0.6s; }
@@ -43,13 +37,6 @@
       to {
         opacity: 1;
         transform: none;
-      }
-    }
-
-    @keyframes fadeOutDown {
-      to {
-        opacity: 0;
-        transform: translateY(20px);
       }
     }
 
@@ -151,23 +138,10 @@
       }
     }
   </style>
-  <script>
-    // Optional: Trigger fade-out on link clicks
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", function (e) {
-          const container = document.querySelector(".container");
-          if (container) {
-            container.classList.add("fade-out");
-          }
-        });
-      });
-    });
-  </script>
 </head>
 <body>
   <div class="container fade-in delay-1">
-    <a href="index.html">← Back</a>
+    <a class="fade-in delay-1" href="index.html">← Back</a>
 
     <h1 class="fade-in delay-2">Works</h1>
 
@@ -180,8 +154,8 @@
     </div>
 
     <div class="project fade-in delay-4">
-      <h2><a href="https://yourproject2.com" target="_blank">Project Title 2</a></h2>
-      <p>Another project summary with tools/tech used.</p>
+      <h2><a href="https://yourproject2.com" target="_blank">Video Project 2</a></h2>
+      <p>Short description of the video project.</p>
       <div class="video-container">
         <iframe src="https://www.youtube.com/embed/example1" allowfullscreen></iframe>
       </div>
