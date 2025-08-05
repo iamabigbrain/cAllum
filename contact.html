@@ -74,25 +74,34 @@
       text-decoration: none;
     }
 
+    .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
     .socials a:hover {
       color: var(--text);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <a href="index.html">← Back</a>
+  <div class="container fade-in">
+    <a href="index.html" class="fade-in">← Back</a>
 
-    <h1>Contact</h1>
-    <p>You can reach me at:</p>
-    <p class="email"><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    <h1 class="fade-in">Contact</h1>
+    <p class="fade-in">You can reach me at:</p>
+    <p class="email fade-in"><a href="mailto:your.email@example.com">your.email@example.com</a></p>
 
-    <footer>
-      <div class="socials">
-        <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
-        <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
-        <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-      </div>
+    <footer class="fade-in">
+      ...
     </footer>
   </div>
 </body>
