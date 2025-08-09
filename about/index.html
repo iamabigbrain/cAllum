@@ -82,6 +82,24 @@
     .fade-in.delay-3 { animation-delay: 0.6s; }
     .fade-in.delay-4 { animation-delay: 0.8s; }
 
+    .youtube-link {
+      color: #FF0000; /* YouTube red */
+      text-decoration: none; /* optional to remove underline */
+    }
+
+    .youtube-link:hover {
+      color: #cc0000; /* darker red on hover */
+    }
+
+    .contact-link {
+      color: #0073e6; /* a nice blue */
+      text-decoration: none;
+    }
+
+    .contact-link:hover {
+      color: #005bb5; /* darker blue on hover */
+    }
+
     @keyframes fadeInUp {
       to {
         opacity: 1;
@@ -113,12 +131,12 @@
       I always want to learn new things whenever and wherever I can to help grow my understanding.
     </p>
 
-    <p class="fade-in.delay-4, margin: 15px 0; line-height: 1.6;">
+    <p class="fade-in delay-4" style="margin: 15px 0; line-height: 1.6;">
       You can find me on 
-      <a href="https://youtube.com/YOUR_CHANNEL_LINK" target="_blank">YouTube</a>
+      <a href="https://youtube.com/YOUR_CHANNEL_LINK" target="_blank" class="youtube-link">YouTube</a>
       or
-      <a href="mailto:youremail@example.com">Contact</a>
-       me!
+      <a href="mailto:youremail@example.com" class="contact-link">Contact</a>
+      me!
     </p>
 
     <footer class="fade-in.delay-4">
