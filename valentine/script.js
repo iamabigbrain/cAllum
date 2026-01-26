@@ -24,13 +24,41 @@ noBtn.addEventListener("click", () => {
   }
 });
 
-// Function to move NO button
+const yesRect = yesBtn.getBoundingClientRect();
+
 const moveNoButton = () => {
-  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+  let x, y, tries = 0;
+
+  do {
+    x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    tries++;
+    // Check if NO overlaps YES
+  } while (
+    x < yesRect.right &&
+    x + noBtn.offsetWidth > yesRect.left &&
+    y < yesRect.bottom &&
+    y + noBtn.offsetHeight > yesRect.top &&
+    tries < 100
+  );
+
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 };
+
+// Desktop hover
+noBtn.addEventListener("mouseover", () => {
+  if (!runawayMode) return;
+  moveNoButton();
+});
+
+// Mobile touch
+noBtn.addEventListener("touchstart", (e) => {
+  if (!runawayMode) return;
+  e.preventDefault();
+  moveNoButton();
+});
+
 
 // NO button hover / touch
 noBtn.addEventListener("mouseover", () => {
