@@ -24,16 +24,28 @@ noBtn.addEventListener("click", () => {
   }
 });
 
-const yesRect = yesBtn.getBoundingClientRect();
+const positionNoButton = () => {
+  const yesRect = yesBtn.getBoundingClientRect();
+  // Place No just below Yes
+  noBtn.style.left = yesRect.left + yesRect.width / 2 - noBtn.offsetWidth / 2 + "px";
+  noBtn.style.top = yesRect.bottom + 15 + "px"; // 15px gap
+};
 
+// Run this on page load
+positionNoButton();
+
+// Also recalc on window resize so mobile/desktop works
+window.addEventListener("resize", positionNoButton);
+
+// Runaway logic
 const moveNoButton = () => {
+  const yesRect = yesBtn.getBoundingClientRect();
   let x, y, tries = 0;
 
   do {
     x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
     y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
     tries++;
-    // Check if NO overlaps YES
   } while (
     x < yesRect.right &&
     x + noBtn.offsetWidth > yesRect.left &&
@@ -45,6 +57,20 @@ const moveNoButton = () => {
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 };
+
+// Desktop hover
+noBtn.addEventListener("mouseover", () => {
+  if (!runawayMode) return;
+  moveNoButton();
+});
+
+// Mobile touch
+noBtn.addEventListener("touchstart", (e) => {
+  if (!runawayMode) return;
+  e.preventDefault();
+  moveNoButton();
+});
+
 
 // Desktop hover
 noBtn.addEventListener("mouseover", () => {
