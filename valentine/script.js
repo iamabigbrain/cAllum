@@ -26,16 +26,24 @@ noBtn.addEventListener("click", () => {
 
 const positionNoButton = () => {
   const yesRect = yesBtn.getBoundingClientRect();
-  // Place No just below Yes
-  noBtn.style.left = yesRect.left + yesRect.width / 2 - noBtn.offsetWidth / 2 + "px";
-  noBtn.style.top = yesRect.bottom + 15 + "px"; // 15px gap
+  
+  // Center horizontally
+  const centerX = yesRect.left + yesRect.width / 2;
+  noBtn.style.left = centerX + "px";
+  
+  // Use transform to center
+  noBtn.style.transform = "translateX(-50%)";
+
+  // Place slightly below Yes button
+  noBtn.style.top = yesRect.bottom + 15 + "px"; 
 };
 
-// Run this on page load
+// Run on page load
 positionNoButton();
 
-// Also recalc on window resize so mobile/desktop works
+// Recalculate on window resize (mobile rotation)
 window.addEventListener("resize", positionNoButton);
+
 
 // Runaway logic
 const moveNoButton = () => {
