@@ -39,13 +39,33 @@ yesBtn.addEventListener("click", () => {
   // hide the No button
   noBtn.style.display = "none";
 
-  for (let i = 0; i < 20; i++) {
+  const numberOfHearts = 20;
+
+  for (let i = 0; i < numberOfHearts; i++) {
     const heart = document.createElement("div");
     heart.className = "heart";
     heart.textContent = "💖";
-    heart.style.left = Math.random() * window.innerWidth + "px";
+
+    // Random horizontal position
+    const x = Math.random() * window.innerWidth;
+
+    heart.style.position = "absolute";
+    heart.style.left = x + "px";
+    heart.style.bottom = "0px"; // start at bottom
+    heart.style.fontSize = `${20 + Math.random() * 20}px`; // random size
+    heart.style.transition = `transform 2s linear, opacity 2s linear`;
+
     heartsContainer.appendChild(heart);
 
-    setTimeout(() => heart.remove(), 2000);
+    // Make it rise up after a short delay
+    setTimeout(() => {
+      const riseDistance = 200 + Math.random() * 200; // random rise distance
+      heart.style.transform = `translateY(-${riseDistance}px)`;
+      heart.style.opacity = 0;
+    }, 50);
+
+    // Remove heart after animation
+    setTimeout(() => heart.remove(), 2100);
   }
 });
+
