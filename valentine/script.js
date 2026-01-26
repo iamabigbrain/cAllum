@@ -4,10 +4,10 @@ const yesBtn = document.getElementById("yesBtn");
 const heartsContainer = document.getElementById("hearts-container");
 
 const noMessages = [
-  "Are you sure? 😐",
-  "Are you REALLY sure? 🥺",
-  "Think again 😭",
-  "Last chance… 💔"
+  "bro 😐",
+  "pls seriously",
+  "think again",
+  "right thats it i have had enough"
 ];
 
 let noCount = 0;
