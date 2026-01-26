@@ -46,7 +46,7 @@ noBtn.addEventListener("touchstart", (e) => {
 
 // YES button click
 yesBtn.addEventListener("click", () => {
-  question.textContent = "YAYYYYY 💖💍";
+  question.textContent = "YES OKAY WE GO TACO BELL NOW!!!!!! I LOVE YOU";
   noBtn.style.display = "none";
 
   const numberOfHearts = 40;
