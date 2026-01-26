@@ -69,12 +69,14 @@ button:hover {
 
 #noBtn {
   position: fixed; /* relative to viewport */
-  left: 50%;
-  /* start just below Yes button dynamically */
-  top: calc(50% + 60px);
-  transform: translateX(-50%);
   z-index: 10;
+  pointer-events: auto;
+  /* Start just under the Yes button */
+  left: 50%;
+  top: 60%; 
+  transform: translateX(-50%);
 }
+
 
 /* 💖 Hearts */
 #hearts-container {
