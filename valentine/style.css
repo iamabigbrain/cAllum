@@ -1,46 +1,85 @@
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --accent: #000000;
+  --button-bg: #f2f2f2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --text: #ffffff;
+    --accent: #ffffff;
+    --button-bg: #1a1a1a;
+  }
+}
+
 body {
-  background-color: #ffe6ee;
-  font-family: Arial, sans-serif;
-  height: 100vh;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 30px 20px;
   overflow: hidden;
 }
 
 .container {
   text-align: center;
+  max-width: 420px;
+  width: 100%;
   position: relative;
-  margin-top: 50px;
 }
 
 .gif {
-  width: 250px;
-  margin-bottom: 20px;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto 30px;
+  display: block;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 2.2em;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
 }
 
 button {
-  font-size: 18px;
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--accent);
+  padding: 14px 24px;
+  border-radius: 4px;
+  font-size: 1em;
+  width: 220px;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-#yesBtn {
-  background-color: #ff5fa2;
-  color: white;
+button:hover {
+  background-color: var(--button-bg);
 }
 
 #noBtn {
-  background-color: #cccccc;
   position: absolute;
 }
 
-/* Hearts */
+/* 💖 Hearts */
 .heart {
   position: fixed;
   bottom: 0;
-  font-size: 24px;
-  animation: floatUp 2s linear forwards;
+  font-size: 26px;
+  animation: floatUp 2s ease-out forwards;
 }
 
 @keyframes floatUp {
@@ -49,7 +88,32 @@ button {
     opacity: 1;
   }
   to {
-    transform: translateY(-600px);
+    transform: translateY(-70vh);
     opacity: 0;
+  }
+}
+
+/* Fade in like your homepage */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* 📱 Mobile tweaks */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  button {
+    width: 90%;
   }
 }
