@@ -1,0 +1,55 @@
+body {
+  background-color: #ffe6ee;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+  margin-top: 50px;
+}
+
+.gif {
+  width: 250px;
+  margin-bottom: 20px;
+}
+
+button {
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#yesBtn {
+  background-color: #ff5fa2;
+  color: white;
+}
+
+#noBtn {
+  background-color: #cccccc;
+  position: absolute;
+}
+
+/* Hearts */
+.heart {
+  position: fixed;
+  bottom: 0;
+  font-size: 24px;
+  animation: floatUp 2s linear forwards;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-600px);
+    opacity: 0;
+  }
+}
