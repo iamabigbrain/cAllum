@@ -36,6 +36,9 @@ noBtn.addEventListener("mouseover", () => {
 yesBtn.addEventListener("click", () => {
   question.textContent = "YAYYYYY 💖💍";
 
+  // hide the No button
+  noBtn.style.display = "none";
+
   for (let i = 0; i < 20; i++) {
     const heart = document.createElement("div");
     heart.className = "heart";
