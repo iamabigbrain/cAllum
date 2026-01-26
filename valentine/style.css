@@ -55,6 +55,7 @@ h1 {
   position: relative;
 }
 
+
 /* Shared button style */
 button {
   background-color: var(--button-bg);
@@ -81,10 +82,11 @@ button:hover {
 /* NO button starts centered, then runs away */
 #noBtn {
   position: absolute;
-  top: 60px;              /* centers it under Yes */
   left: 50%;
+  top: calc(100% + 15px); /* places it under Yes */
   transform: translateX(-50%);
 }
+
 
 /* 💖 Hearts */
 .heart {
