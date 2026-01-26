@@ -35,8 +35,6 @@ noBtn.addEventListener("mouseover", () => {
 
 yesBtn.addEventListener("click", () => {
   question.textContent = "YAYYYYY 💖💍";
-
-  // hide the No button
   noBtn.style.display = "none";
 
   const numberOfHearts = 30;
@@ -46,20 +44,17 @@ yesBtn.addEventListener("click", () => {
     heart.className = "heart";
     heart.textContent = "💖";
 
-    // Random horizontal position across the window
-    const x = Math.random() * (window.innerWidth - 30); // 30px buffer
-    heart.style.position = "absolute";
-    heart.style.left = x + "px";
-    heart.style.bottom = "-50px"; // start slightly below screen
-    heart.style.fontSize = `${20 + Math.random() * 30}px`; // random size
-    heart.style.opacity = 1;
-    heart.style.pointerEvents = "none"; // don't block clicks
+    // Random horizontal position
+    heart.style.left = Math.random() * (window.innerWidth - 30) + "px";
+    // Start just below the bottom
+    heart.style.bottom = "-50px";
+    // Random size
+    heart.style.fontSize = `${20 + Math.random() * 30}px`;
 
     heartsContainer.appendChild(heart);
 
-    // Random animation duration and delay
-    const riseDuration = 2000 + Math.random() * 2000; // 2s to 4s
     const riseDistance = 300 + Math.random() * 200; // 300-500px
+    const riseDuration = 2000 + Math.random() * 2000; // 2s-4s
 
     setTimeout(() => {
       heart.style.transition = `transform ${riseDuration}ms linear, opacity ${riseDuration}ms linear`;
@@ -67,9 +62,9 @@ yesBtn.addEventListener("click", () => {
       heart.style.opacity = 0;
     }, 50);
 
-    // Remove heart after animation
     setTimeout(() => heart.remove(), riseDuration + 100);
   }
 });
+
 
 
