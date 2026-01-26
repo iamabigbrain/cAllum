@@ -13,6 +13,27 @@ const noMessages = [
 let noCount = 0;
 let runawayMode = false;
 
+// Position NO button under YES button
+const positionNoButton = () => {
+  const yesRect = yesBtn.getBoundingClientRect();
+
+  // Center horizontally
+  const centerX = yesRect.left + yesRect.width / 2;
+  noBtn.style.left = centerX + "px";
+  noBtn.style.transform = "translateX(-50%)";
+
+  // Slightly below YES
+  noBtn.style.top = yesRect.bottom + 15 + "px";
+};
+
+// Run on page load after everything is rendered
+window.addEventListener("load", () => {
+  positionNoButton();
+});
+
+// Recalculate on window resize (mobile rotation)
+window.addEventListener("resize", positionNoButton);
+
 // NO button click
 noBtn.addEventListener("click", () => {
   if (noCount < noMessages.length - 1) {
@@ -24,28 +45,7 @@ noBtn.addEventListener("click", () => {
   }
 });
 
-const positionNoButton = () => {
-  const yesRect = yesBtn.getBoundingClientRect();
-  
-  // Center horizontally
-  const centerX = yesRect.left + yesRect.width / 2;
-  noBtn.style.left = centerX + "px";
-  
-  // Use transform to center
-  noBtn.style.transform = "translateX(-50%)";
-
-  // Place slightly below Yes button
-  noBtn.style.top = yesRect.bottom + 15 + "px"; 
-};
-
-// Run on page load
-positionNoButton();
-
-// Recalculate on window resize (mobile rotation)
-window.addEventListener("resize", positionNoButton);
-
-
-// Runaway logic
+// Runaway function (avoids overlapping YES)
 const moveNoButton = () => {
   const yesRect = yesBtn.getBoundingClientRect();
   let x, y, tries = 0;
@@ -65,34 +65,6 @@ const moveNoButton = () => {
   noBtn.style.left = x + "px";
   noBtn.style.top = y + "px";
 };
-
-// Desktop hover
-noBtn.addEventListener("mouseover", () => {
-  if (!runawayMode) return;
-  moveNoButton();
-});
-
-// Mobile touch
-noBtn.addEventListener("touchstart", (e) => {
-  if (!runawayMode) return;
-  e.preventDefault();
-  moveNoButton();
-});
-
-
-// Desktop hover
-noBtn.addEventListener("mouseover", () => {
-  if (!runawayMode) return;
-  moveNoButton();
-});
-
-// Mobile touch
-noBtn.addEventListener("touchstart", (e) => {
-  if (!runawayMode) return;
-  e.preventDefault();
-  moveNoButton();
-});
-
 
 // NO button hover / touch
 noBtn.addEventListener("mouseover", () => {
@@ -118,27 +90,25 @@ yesBtn.addEventListener("click", () => {
     heart.className = "heart";
     heart.textContent = "💖";
 
-    // Random position anywhere on screen
+    // Random horizontal position
     heart.style.left = Math.random() * (window.innerWidth - 30) + "px";
     heart.style.bottom = "-50px"; // start below screen
     heart.style.fontSize = `${20 + Math.random() * 30}px`;
 
     heartsContainer.appendChild(heart);
 
-    const riseDistance = 300 + Math.random() * 400; // height to float
+    const riseDistance = 300 + Math.random() * 400; // float height
     const riseDuration = 2000 + Math.random() * 2000;
 
-    // Optional swaying motion
-    const sway = (Math.random() - 0.5) * 100; // -50 to 50 px
+    // Sway left/right
+    const sway = (Math.random() - 0.5) * 100; // -50 to +50 px
     setTimeout(() => {
       heart.style.transition = `transform ${riseDuration}ms ease-out, opacity ${riseDuration}ms linear`;
       heart.style.transform = `translate(${sway}px, -${riseDistance}px)`;
       heart.style.opacity = 0;
     }, 50);
 
+    // Remove after animation
     setTimeout(() => heart.remove(), riseDuration + 100);
   }
 });
-
-
-
