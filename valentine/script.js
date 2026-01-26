@@ -39,33 +39,37 @@ yesBtn.addEventListener("click", () => {
   // hide the No button
   noBtn.style.display = "none";
 
-  const numberOfHearts = 20;
+  const numberOfHearts = 30;
 
   for (let i = 0; i < numberOfHearts; i++) {
     const heart = document.createElement("div");
     heart.className = "heart";
     heart.textContent = "💖";
 
-    // Random horizontal position
-    const x = Math.random() * window.innerWidth;
-
+    // Random horizontal position across the window
+    const x = Math.random() * (window.innerWidth - 30); // 30px buffer
     heart.style.position = "absolute";
     heart.style.left = x + "px";
-    heart.style.bottom = "0px"; // start at bottom
-    heart.style.fontSize = `${20 + Math.random() * 20}px`; // random size
-    heart.style.transition = `transform 2s linear, opacity 2s linear`;
+    heart.style.bottom = "-50px"; // start slightly below screen
+    heart.style.fontSize = `${20 + Math.random() * 30}px`; // random size
+    heart.style.opacity = 1;
+    heart.style.pointerEvents = "none"; // don't block clicks
 
     heartsContainer.appendChild(heart);
 
-    // Make it rise up after a short delay
+    // Random animation duration and delay
+    const riseDuration = 2000 + Math.random() * 2000; // 2s to 4s
+    const riseDistance = 300 + Math.random() * 200; // 300-500px
+
     setTimeout(() => {
-      const riseDistance = 200 + Math.random() * 200; // random rise distance
+      heart.style.transition = `transform ${riseDuration}ms linear, opacity ${riseDuration}ms linear`;
       heart.style.transform = `translateY(-${riseDistance}px)`;
       heart.style.opacity = 0;
     }, 50);
 
     // Remove heart after animation
-    setTimeout(() => heart.remove(), 2100);
+    setTimeout(() => heart.remove(), riseDuration + 100);
   }
 });
+
 
